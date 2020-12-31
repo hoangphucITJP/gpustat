@@ -473,7 +473,7 @@ class GPUStatCollection(object):
                     try:
                         process = get_process_info(nv_process)
                         processes.append(process)
-                    except psutil.NoSuchProcess:
+                    except (psutil.NoSuchProcess, psutil.AccessDenied):
                         # TODO: add some reminder for NVML broken context
                         # e.g. nvidia-smi reset  or  reboot the system
                         pass
